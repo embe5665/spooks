@@ -1,8 +1,8 @@
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Ember Dean
+January 20th, 2020
+Culminating- Personality test
  */
 
 /**
@@ -10,17 +10,34 @@
  * @author Emdea4472
  */
 public class End extends javax.swing.JFrame {
-
-
-    public static double Perc (int O,int A, int C, int E, int N)
+    double percentageO;
+    double sumO;
+    double percentageA;
+    double sumA;
+    double percentageC;
+    double sumC;
+    double percentageE;
+    double sumE;
+    double percentageN;
+    double sumN;
+   
+    
+    public double add (int O,int A, int C, int E, int N) //Method to add all scores
     {
-        int sum = O + A + C + E + N;
+        double sum = O + A + C + E + N;//add all scores into one variable
         
-        double perc = O / sum;
-        
-        return (perc);        
+        return (sum);
     }
+   
+    
+    public double perc (int O,int A, int C, int E, int N, double sum)//Method to calculate percentage of catigories
+    {                
+        double perc = (O / sum) * 100; //divide single score to get percentage out of the rest
+        perc = Math.round(perc); // round percentage
         
+        return (perc);  //return percentage    
+    }
+
     /**
      * Creates new form End
      */
@@ -63,7 +80,7 @@ public class End extends javax.swing.JFrame {
 
         jLabel1.setText("Your done!");
 
-        jLabel2.setText("Based on your answers you ranked highest to lowest in these catigories");
+        jLabel2.setText("Based on your answers you have been scored in these catigories");
 
         jButton1.setText("Agreeablness");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,56 +155,59 @@ public class End extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Ext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Nero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(open, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Ext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Nero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(open, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(open2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(Nero2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(Ext2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(agree2, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Con, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Con2)
-                                        .addGap(4, 4, 4)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(open2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Nero2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Ext2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(agree2, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton6)
-                                    .addComponent(agree, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(Con, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Con2)
+                                .addGap(4, 4, 4)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton1)
-                            .addComponent(jButton4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 13, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(29, 29, 29))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(26, 26, 26)))
-                .addGap(61, 61, 61))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton6)
+                            .addComponent(agree, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4))
+                .addGap(70, 70, 70))
             .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabel1)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,13 +235,10 @@ public class End extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Nero2)
                             .addComponent(Nero))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Ext2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Ext))))
+                            .addComponent(Ext2)
+                            .addComponent(Ext)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jButton2)
@@ -232,13 +249,15 @@ public class End extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(Con2)
-                            .addComponent(Con)))
+                        .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jButton5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5)
+                            .addComponent(Con)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Con2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -250,45 +269,102 @@ public class End extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Agreeable().setVisible(true);
+        new Agreeable().setVisible(true); //Show user from (Agreeablness)
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new Openness().setVisible(true);
+        new Openness().setVisible(true);//Show user from (Openness)
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new Neuroticism().setVisible(true);
+        new Neuroticism().setVisible(true);//Show user from (Neuroticism)
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new Extreversion().setVisible(true);
+        new Extreversion().setVisible(true);//Show user from (Exterversion)
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new Contientiousness().setVisible(true);
+        new Contientiousness().setVisible(true);//Show user from (Contientiousness)
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Perc (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N);
-        open.setText("Openness: " + cul1.O);
-        open2.setText("" + perc);
         
-        Perc (cul1.A,cul1.O,cul1.C,cul1.E,cul1.N);
-        agree.setText("Agreeablness: " + cul1.A);
-        agree2.setText("" + perc);
+        sumO = add (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N); // CALL METHOD ADD
+        percentageO = perc (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N, sumO); //CALL METHOD PERC
         
-        Perc (cul1.C,cul1.O,cul1.A,cul1.E,cul1.N);
+        open.setText("Openness: " + cul1.O); //Display score in label
+        
+        if (percentageO  > -2)
+            {
+            open2.setText("" + percentageO + "%"); //Display percentage in label
+            }
+        else
+            {
+            open2.setText("N/A");
+            }
+        
+        
+        //repeat for every other catagory
+        sumA = add (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N);
+        percentageA = perc (cul1.A,cul1.O,cul1.C,cul1.E,cul1.N, sumA);
+        
+        agree.setText("Agreeableness: " + cul1.A);
+        
+        if (percentageA  > -2)
+            {
+            agree2.setText("" + percentageA + "%"); //Display percentage in label
+            }
+            else
+            {
+            agree2.setText("N/A");
+            }
+        
+        
+        sumC = add (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N);
+        percentageC = perc (cul1.C,cul1.A,cul1.O,cul1.E,cul1.N, sumC);
+        
         Con.setText("Contientiousness: " + cul1.C);
-        Nero2.setText("" + perc);
         
-        Perc (cul1.E,cul1.O,cul1.A,cul1.C,cul1.N);
-        Ext.setText("Extroversion: " + cul1.E);
-        Ext2.setText("" + perc);
+        if (percentageC  > -13)
+            {
+            Con2.setText("" + percentageC + "%"); //Display percentage in label
+            }
+            else
+            {
+            Con2.setText("N/A");
+            }
         
-        Perc (cul1.N,cul1.O,cul1.A,cul1.E,cul1.C);
+        
+        sumE = add (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N);
+        percentageE = perc (cul1.E,cul1.A,cul1.C,cul1.O,cul1.N, sumE);
+        
+        Ext.setText("Extreversion: " + cul1.E);
+        
+        if (percentageE  > -13)
+            {
+            Ext2.setText("" + percentageE + "%"); //Display percentage in label
+            }
+            else
+            {
+            Ext2.setText("N/A");
+            }
+        
+        
+        sumN = add (cul1.O,cul1.A,cul1.C,cul1.E,cul1.N);
+        percentageN = perc (cul1.N,cul1.A,cul1.C,cul1.E,cul1.O, sumN);
+        
         Nero.setText("Neuroticism: " + cul1.N);
-        Nero2.setText("" + perc);
+        
+        if (percentageN  > -13)
+            {
+            Nero2.setText("" + percentageN + "%"); //Display percentage in label
+            }
+            else
+            {
+            Nero2.setText("N/A");
+            }
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
